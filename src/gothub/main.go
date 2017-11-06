@@ -14,10 +14,10 @@ const port = "8080"
 
 func main() {
 	router := mux.NewRouter()
-	router.HandleFunc("/", handler.Top)
+	router.HandleFunc("/", handler.Top).Methods("GET")
 	{
 		// github request
-
+		router.HandleFunc("/github/search/repositories", handler.SearchRepositories).Methods("GET")
 	}
 	if err := http.ListenAndServe(fmt.Sprintf(":%s", port), router); err != nil {
 		log.Fatal("err: %v", err)
