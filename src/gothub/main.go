@@ -20,6 +20,6 @@ func main() {
 		router.HandleFunc("/github/search/repositories", handler.SearchRepositories).Methods("GET")
 	}
 	if err := http.ListenAndServe(fmt.Sprintf(":%s", port), router); err != nil {
-		log.Fatal("err: %v", err)
+		log.Fatalf("err: %v", err)
 	}
 }

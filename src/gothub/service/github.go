@@ -39,7 +39,7 @@ func (g GithubClient) SearchRepositories(r *http.Request) (*http.Response, error
 	client := g.New()
 	req, err := http.NewRequest("GET", githubSearchURL, nil)
 	if err != nil {
-		log.Fatalf("build request error. err: %v")
+		log.Fatalf("build request error. err: %v", err)
 	}
 	req.URL.RawQuery = values.Encode()
 	resp, err := client.Do(req)
