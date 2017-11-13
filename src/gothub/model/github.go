@@ -7,7 +7,7 @@ type Github struct{}
 type Repositories struct {
 	TotalCount       int64        `json:"total_count"`
 	ImcompleteResult bool         `json:"imcomplete_result"`
-	items            []Repository `json:"items"`
+	Items            []Repository `json:"items"`
 }
 
 type Repository struct {
