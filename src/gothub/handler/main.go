@@ -12,6 +12,5 @@ func Top(w http.ResponseWriter, r *http.Request) {
 	}{
 		Name: "taro",
 	}
-
 	render.RenderHTML("template/index.tmpl", w, sampleData)
 }
