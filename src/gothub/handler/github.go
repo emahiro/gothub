@@ -2,7 +2,6 @@ package handler
 
 import (
 	"encoding/json"
-	"io/ioutil"
 	"net/http"
 
 	"gothub/model"
@@ -22,10 +21,10 @@ func PostSearchRepositories(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatalf("request error. err: %v")
 	}
-	b, err := ioutil.ReadAll(resp.Body)
 	resp.Body.Close()
+
 	var repos model.Repositories
-	if err := json.Unmarshal(b, &repos); err != nil {
+	if json.NewDecoder(resp.Body).Decode(&repos); err != nil {
 		log.Fatalf("json unmarshal error. err: %v", err)
 	}
 
